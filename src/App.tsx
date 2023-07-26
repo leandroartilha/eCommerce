@@ -1,24 +1,30 @@
-import { Box, Button } from "@chakra-ui/react";
-import { Skeleton, Stack } from "@chakra-ui/react";
+import { Grid, GridItem, Show } from "@chakra-ui/react";
+import NavBar from "./components/NavBar";
+
+// 2. Extend the theme with new layer styles
 
 function App() {
   return (
     <>
-      <h1>E-Commerce</h1>
-      <Button colorScheme="blue">Button</Button>
-      <Stack>
-        <Skeleton height="20px" />
-        <Skeleton height="20px" />
-        <Skeleton height="20px" />
-      </Stack>
-      {/* <Button
-        isLoading
-        colorScheme="blue"
-        spinner={<BeatLoader size={8} color="white" />}
+      <Grid
+        templateAreas={{
+          base: `"header" "main"`,
+          lg: `"header header" "aside main"`,
+        }}
       >
-        Click me
-      </Button> */}
-      <Box color="gray.50" />
+        <GridItem area={"header"} padding="0.5rem">
+          <NavBar />
+        </GridItem>
+        <Show above="lg">
+          <GridItem bg="pink.300" area={"aside"}>
+            aside
+          </GridItem>
+        </Show>
+
+        <GridItem bg="green.300" area={"main"}>
+          Main
+        </GridItem>
+      </Grid>
     </>
   );
 }
