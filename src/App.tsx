@@ -1,5 +1,7 @@
 import { Grid, GridItem, Show } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
+import Products from "./components/Products";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // 2. Extend the theme with new layer styles
 
@@ -16,13 +18,11 @@ function App() {
           <NavBar />
         </GridItem>
         <Show above="lg">
-          <GridItem bg="pink.300" area={"aside"}>
-            aside
-          </GridItem>
+          <GridItem area={"aside"}>aside</GridItem>
         </Show>
 
-        <GridItem bg="green.300" area={"main"}>
-          Main
+        <GridItem area={"main"}>
+          <Products />
         </GridItem>
       </Grid>
     </>
