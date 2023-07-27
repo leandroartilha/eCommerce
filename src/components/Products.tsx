@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import apiClient from "../api-client";
 import Product from "./Product";
-import { CircularProgress, Spinner } from "@chakra-ui/react";
+import { Spinner, SimpleGrid } from "@chakra-ui/react";
 
 function Products() {
   const [games, setGames] = useState<Game[]>([]);
@@ -41,13 +41,17 @@ function Products() {
           height="20rem"
         />
       )}
-      <ul className="mt-5">
+      <SimpleGrid
+        columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
+        padding="10px"
+        spacing={10}
+      >
         {games.map((game) => (
           <li key={game.id}>
             <Product name={game.name} backgroud_image={game.background_image} />
           </li>
         ))}
-      </ul>
+      </SimpleGrid>
     </>
   );
 }
