@@ -27,7 +27,7 @@ interface Props {
 function Product({ game }: Props) {
   return (
     <>
-      <Card width="300px" margin="1rem" boxShadow="dark-lg" rounded="md">
+      <Card maxW="lg" boxShadow="dark-lg" rounded="md">
         <CardBody>
           <Image
             src={getCropUrl(game.background_image)}
@@ -49,7 +49,7 @@ function Product({ game }: Props) {
         </CardBody>
         <Divider />
         <CardFooter>
-          <ButtonGroup spacing="2">
+          <ButtonGroup>
             <Button variant="solid" colorScheme="blue">
               Comprar
             </Button>

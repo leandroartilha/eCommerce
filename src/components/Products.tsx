@@ -9,7 +9,7 @@ import ProductSkeleton from "./ProductSkeleton";
 function Products() {
   const [games, setGames] = useState<Game[]>([]);
   const [isLoading, setLoading] = useState(false);
-  const skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
+  const skeletons = [1, 2, 3, 4, 5, 6];
 
   interface ListaGame {
     results: Game[];
@@ -31,7 +31,7 @@ function Products() {
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
         padding="30px"
-        spacing={15}
+        spacing={50}
       >
         {
           isLoading &&
