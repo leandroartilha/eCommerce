@@ -9,25 +9,41 @@ import {
   Divider,
   ButtonGroup,
   Button,
+  Grid,
+  SimpleGrid,
+  Box,
+  HStack,
 } from "@chakra-ui/react";
 
-interface Produto {
-  name: string;
-  backgroud_image: string;
+import { Game } from "../interfaces/game";
+import PlatformIconList from "./PlatformIconList";
+import ScoreCritica from "./ScoreCritica";
+
+interface Props {
+  game: Game;
 }
 
-function Product({ name, backgroud_image }: Produto) {
+function Product({ game }: Props) {
   return (
     <>
       <Card maxW="sm" margin="1rem" boxShadow="dark-lg" rounded="md">
         <CardBody>
-          <Image src={backgroud_image} alt="Imagem-Produto" borderRadius="lg" />
+          <Image
+            src={game.background_image}
+            alt="Imagem-Produto"
+            borderRadius="lg"
+          />
           <Stack mt="6" spacing="3">
-            <Heading size="md">{name}</Heading>
+            <Heading size="md">{game.name}</Heading>
 
-            <Text color="blue.600" fontSize="2xl">
-              $450
-            </Text>
+            <HStack justifyContent={"space-between"}>
+              <SimpleGrid columns={4} spacing={8} marginLeft={5}>
+                <PlatformIconList
+                  platforms={game.parent_platforms.map((p) => p.platform)}
+                />
+              </SimpleGrid>
+              <ScoreCritica score={game.metacritic} />
+            </HStack>
           </Stack>
         </CardBody>
         <Divider />

@@ -3,15 +3,11 @@ import apiClient from "../api-client";
 import Product from "./Product";
 import { Spinner, SimpleGrid } from "@chakra-ui/react";
 
+import { Game } from "../interfaces/game";
+
 function Products() {
   const [games, setGames] = useState<Game[]>([]);
   const [isLoading, setLoading] = useState(false);
-
-  interface Game {
-    id: number;
-    name: string;
-    background_image: string;
-  }
 
   interface ListaGame {
     results: Game[];
@@ -23,6 +19,7 @@ function Products() {
       .get<ListaGame>("/games")
       .then((res) => {
         setGames(res.data.results);
+        console.log(res.data.results);
         setLoading(false);
       })
       .catch((res) => console.log(res));
@@ -48,7 +45,7 @@ function Products() {
       >
         {games.map((game) => (
           <li key={game.id}>
-            <Product name={game.name} backgroud_image={game.background_image} />
+            <Product game={game} />
           </li>
         ))}
       </SimpleGrid>
