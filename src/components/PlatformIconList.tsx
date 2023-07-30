@@ -33,7 +33,7 @@ function PlatformIconList({ platforms }: Props) {
   return (
     <>
       {platforms.map((p) => (
-        <Icon as={iconMap[p.slug]} color="gray.400"></Icon>
+        <Icon as={iconMap[p.slug]} color="gray.400" key={p.id}></Icon>
       ))}
     </>
   );

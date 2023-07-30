@@ -27,7 +27,7 @@ interface Props {
 function Product({ game }: Props) {
   return (
     <>
-      <Card maxW="sm" margin="1rem" boxShadow="dark-lg" rounded="md">
+      <Card width="300px" margin="1rem" boxShadow="dark-lg" rounded="md">
         <CardBody>
           <Image
             src={getCropUrl(game.background_image)}
