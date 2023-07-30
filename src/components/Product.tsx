@@ -18,6 +18,7 @@ import {
 import { Game } from "../interfaces/game";
 import PlatformIconList from "./PlatformIconList";
 import ScoreCritica from "./ScoreCritica";
+import getCropUrl from "../crop-image";
 
 interface Props {
   game: Game;
@@ -29,7 +30,7 @@ function Product({ game }: Props) {
       <Card maxW="sm" margin="1rem" boxShadow="dark-lg" rounded="md">
         <CardBody>
           <Image
-            src={game.background_image}
+            src={getCropUrl(game.background_image)}
             alt="Imagem-Produto"
             borderRadius="lg"
           />
